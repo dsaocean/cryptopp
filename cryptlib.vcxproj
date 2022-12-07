@@ -3,6 +3,7 @@
   <!-- Microsoft documentation for VCXPROJ file format is located at -->
   <!-- the following URL. The documentation leaves a lot to be desired. -->
   <!-- https://msdn.microsoft.com/en-us/library/2208a1f2.aspx -->
+  <Import Project="..\..\packages\DSACommon.1.0.0\build\DSACommon.props" Condition="Exists('..\..\packages\DSACommon.1.0.0\build\DSACommon.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -62,12 +63,35 @@
   <ImportGroup Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DLL-Import Debug|x64'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DLL-Import Debug|Win32'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DLL-Import Release|x64'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DLL-Import Release|Win32'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <!-- End of Visual Studio boilerplate -->
   <!-- All Configurations -->
   <PropertyGroup Label="All Configurations">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <TargetName>cryptlib</TargetName>
     <TargetExt>.lib</TargetExt>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
@@ -366,6 +390,7 @@
     <None Include="Doxyfile" />
     <None Include="GNUmakefile" />
     <None Include="License.txt" />
+    <None Include="packages.config" />
     <None Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -582,5 +607,13 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+    <Import Project="..\..\packages\DSACommon.1.0.0\build\DSACommon.targets" Condition="Exists('..\..\packages\DSACommon.1.0.0\build\DSACommon.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\DSACommon.1.0.0\build\DSACommon.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\DSACommon.1.0.0\build\DSACommon.props'))" />
+    <Error Condition="!Exists('..\..\packages\DSACommon.1.0.0\build\DSACommon.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\DSACommon.1.0.0\build\DSACommon.targets'))" />
+  </Target>
 </Project>

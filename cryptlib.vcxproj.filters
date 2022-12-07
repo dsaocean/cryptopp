@@ -553,6 +553,7 @@
     <None Include="Readme.txt">
       <Filter>Miscellaneous</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3way.h">
