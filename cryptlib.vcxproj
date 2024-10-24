@@ -3,7 +3,7 @@
   <!-- Microsoft documentation for VCXPROJ file format is located at -->
   <!-- the following URL. The documentation leaves a lot to be desired. -->
   <!-- https://msdn.microsoft.com/en-us/library/2208a1f2.aspx -->
-  <Import Project="..\..\packages\DSACommon.1.0.0\build\DSACommon.props" Condition="Exists('..\..\packages\DSACommon.1.0.0\build\DSACommon.props')" />
+  <Import Project="packages\DSACommon.1.1.0\build\DSACommon.props" Condition="Exists('packages\DSACommon.1.1.0\build\DSACommon.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -607,13 +607,13 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
-    <Import Project="..\..\packages\DSACommon.1.0.0\build\DSACommon.targets" Condition="Exists('..\..\packages\DSACommon.1.0.0\build\DSACommon.targets')" />
+    <Import Project="packages\DSACommon.1.1.0\build\DSACommon.targets" Condition="Exists('packages\DSACommon.1.1.0\build\DSACommon.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\DSACommon.1.0.0\build\DSACommon.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\DSACommon.1.0.0\build\DSACommon.props'))" />
-    <Error Condition="!Exists('..\..\packages\DSACommon.1.0.0\build\DSACommon.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\DSACommon.1.0.0\build\DSACommon.targets'))" />
+    <Error Condition="!Exists('packages\DSACommon.1.1.0\build\DSACommon.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\DSACommon.1.1.0\build\DSACommon.props'))" />
+    <Error Condition="!Exists('packages\DSACommon.1.1.0\build\DSACommon.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\DSACommon.1.1.0\build\DSACommon.targets'))" />
   </Target>
 </Project>

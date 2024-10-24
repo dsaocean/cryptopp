@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="16.0">
+    <PropertyGroup>
+        <BuildType>vc$(CppToolsetVersion)-$(LibraryType)-$(PlatformTarget)</BuildType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <CryptoppLibs Include="$(MSBuildThisFileDirectory)..\lib\native\cryptlib-$(BuildType).lib" />
+    </ItemGroup>
+    
+    <PropertyGroup>
+        <CryptoppLibraries>@(CryptoppLibs)</CryptoppLibraries>
+    </PropertyGroup>
+    
+    <ItemDefinitionGroup>
+        <ClCompile>
+            <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+        </ClCompile>
+        <Link>
+            <AdditionalDependencies>$(CryptoppLibraries);%(AdditionalDependencies)</AdditionalDependencies>
+        </Link>
+    </ItemDefinitionGroup>
+	
+	
+</Project>

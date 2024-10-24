@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>$LibName$</id>
+    <version>1.0.0</version>
+    <title></title>
+    <authors>Wei Dai</authors>
+    <owners>Wei Dai</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$ProjectDescription$</description>
+	<repository type="git" url="https://github.com/dsaocean/cryptopp" />
+    <dependencies>
+      <dependency id="DSACommon" version="1.1" />
+    </dependencies>
+  </metadata>
+</package>
